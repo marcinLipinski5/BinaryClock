@@ -15,15 +15,12 @@ public class App {
 			e.printStackTrace();
 		}
 		
-		//Get hours
 
         System.out.println( convert.binaryConvert(time.getHours()));
         
-        //Get minutes
 
         System.out.println( convert.binaryConvert(time.getMinutes()));
         
-        //Get seconds
 
         System.out.println( convert.binaryConvert(time.getSeconds()));
        

@@ -9,10 +9,9 @@ public class Convert {
 	JPanel panel;
 	GetTime time = new GetTime();
 
-	//This method convert time value from String to in 
-	//and then convert time from decimal to binary form
+
 	public String binaryConvert(String numbers) {
-		// Converting time value from String to int
+
 		int number = 0;
 		try {
 			number = Integer.parseInt(numbers);
@@ -20,7 +19,7 @@ public class Convert {
 			System.out.println("Can't convert time to int format");
 		}
 
-		// Converting from decimal to binary
+
 		String timeBinaryForm;
 
 		timeBinaryForm = Integer.toBinaryString(number);
@@ -29,7 +28,7 @@ public class Convert {
 
 	}
 
-	//This method is used to set proper diode to the panel
+	
 	public JPanel guiHelper(String value) {
 
 		panel = new JPanel();
@@ -38,7 +37,7 @@ public class Convert {
 		return panel;
 	}
 
-	//This method check which line of diodes (hours, minutes, seconds) should be now operated
+	
 	public String operatorCheck(String value) {
 		
 		String operator = "0";
@@ -53,8 +52,7 @@ public class Convert {
 		return operator;
 	}
 
-	//In this method diodes from proper line (hours, minutes, seconds) are set to 
-	//true or false position
+
 	public JPanel setDiode(String value) {
 		time = new GetTime();
 		String operator = operatorCheck(value);
@@ -83,7 +81,7 @@ public class Convert {
 		return panel;
 	}
 	
-	//Get decimal time
+	
 	public String getDecimalTime() {
 		return time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds();
 	}
@@ -96,7 +94,7 @@ public class Convert {
 		}
 	}
 
-	//Diode to show "true" value of binary form time
+
 	private class OnDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {
@@ -105,7 +103,7 @@ public class Convert {
 		}
 	}
 
-	//Diode to show "false" value of binary form time
+	
 	private class OffDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {
@@ -114,7 +112,7 @@ public class Convert {
 		}
 	}
 
-	//Diode to show that something during conversion went wrong
+	
 	class InactiveDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {
