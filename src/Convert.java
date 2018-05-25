@@ -9,28 +9,19 @@ public class Convert {
 	JPanel panel;
 	GetTime time = new GetTime();
 
-
 	public String binaryConvert(String numbers) {
-
 		int number = 0;
 		try {
 			number = Integer.parseInt(numbers);
 		} catch (NumberFormatException ex) {
 			System.out.println("Can't convert time to int format");
 		}
-
-
 		String timeBinaryForm;
-
 		timeBinaryForm = Integer.toBinaryString(number);
-
 		return timeBinaryForm;
-
 	}
 
-	
 	public JPanel guiHelper(String value) {
-
 		panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 		setDiode(value);
@@ -39,7 +30,6 @@ public class Convert {
 
 	
 	public String operatorCheck(String value) {
-		
 		String operator = "0";
 		if (value.equals("hours")) {
 			operator = binaryConvert(time.getHours());
@@ -48,22 +38,17 @@ public class Convert {
 		} else if (value.equals("seconds")) {
 			operator = binaryConvert(time.getSeconds());
 		}
-
 		return operator;
 	}
-
 
 	public JPanel setDiode(String value) {
 		time = new GetTime();
 		String operator = operatorCheck(value);
 		for (int i = 0; i < 6 - operator.length(); i++) {
-
 			Diode diode = new OffDiode();
 			panel.add(diode);
 		}
-
 		for (int i = 0; i < operator.length(); i++) {
-
 			try {
 				if (operator.charAt(i) == '1') {
 					Diode diode = new OnDiode();
@@ -88,13 +73,10 @@ public class Convert {
 
 	private abstract class Diode extends JPanel {
 		private static final long serialVersionUID = 1L;
-
 		public void paintComponent(Graphics g) {
-
 		}
 	}
-
-
+	
 	private class OnDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {
@@ -103,7 +85,6 @@ public class Convert {
 		}
 	}
 
-	
 	private class OffDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {
@@ -112,7 +93,6 @@ public class Convert {
 		}
 	}
 
-	
 	class InactiveDiode extends Diode {
 		private static final long serialVersionUID = 1L;
 		public void paintComponent(Graphics g) {

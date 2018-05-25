@@ -31,8 +31,8 @@ public class GUI {
 
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		numbersBox = new Box(BoxLayout.X_AXIS);
+		
 		for (int i = 0; i <= 5; i++) {
 			JLabel label = new JLabel("<html><p style=\"color:#778899\">" + numbers[5 - i] + "</p></html>");
 			label.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 5));
@@ -40,10 +40,9 @@ public class GUI {
 		}
 
 		numbersBox.setBorder(BorderFactory.createEmptyBorder(5, 25, 25, 25));
-
 		hoursPanel = new JPanel();
 		hoursPanel.setLayout(new BoxLayout(hoursPanel, BoxLayout.X_AXIS));
-
+		
 		minutesPanel = new JPanel();
 		minutesPanel.setLayout(new BoxLayout(minutesPanel, BoxLayout.X_AXIS));
 
@@ -72,7 +71,6 @@ public class GUI {
 				createTimePanel();
 			}
 		}, 0, 1000, TimeUnit.MILLISECONDS);
-
 	}
 
 	public void createTimePanel() {
